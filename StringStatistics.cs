@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         public string str;
         public char[] symbolw = new char[] { ' ', '.', ',', ';', '!', '(', ')', '?', '\n' };
-        public char[] symboln = new char[] { '\n' };
+        public char[] symbolr = new char[] { '\n' };
         public char[] symbols = new char[] { '.', '!', '?' };
         public string[] WordArray;
         public string[] RowArray;
@@ -20,7 +20,7 @@ namespace ConsoleApp1
         {
             str = temp;
             WordArray = str.Split(symbolw, StringSplitOptions.RemoveEmptyEntries);
-            RowArray = str.Split(symboln);
+            RowArray = str.Split(symbolr);
             SentenceArray = str.Split(symbols, StringSplitOptions.RemoveEmptyEntries);
         }
 
@@ -119,6 +119,7 @@ namespace ConsoleApp1
             Array.Sort(WordArray);
             int temp = 1;
             int current = 1;
+
             string final = "";
 
             for (int i = 1; i < WordArray.Length-1; i++)
@@ -147,8 +148,9 @@ namespace ConsoleApp1
             string covid1 = "covid";
             string covid2 = "covid-19";
             string covid3 = "sars-cov-2";
+            string strlower = str.ToLower();
 
-            if (str.Contains(covid1) || str.Contains(covid2) || str.Contains(covid3))
+            if (strlower.Contains(covid1) || strlower.Contains(covid2) || strlower.Contains(covid3))
             {
                 return true;
             }
